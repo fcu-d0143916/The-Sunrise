@@ -3,8 +3,18 @@
     <string name="weather">天氣 Weather</string>
     <string name="liveimage">即時影像 LiveImage</string>
     <string name="map">附近地圖 Map</string>
+
     <string name="weatherdescription">Weather</string>
     <string name="temperature">temperature</string>
     <string name="rain">rain</string>
     <string name="test">test</string>
+
+    <string name="spinner_place">選擇地點</string>
+    <string-array name="spinner_place">
+        <item>A地點</item>
+        <item>B地點</item>
+        <item>C地點</item>
+        <item>D地點</item>
+        <item>E地點</item>
+    </string-array>
 </resources>
