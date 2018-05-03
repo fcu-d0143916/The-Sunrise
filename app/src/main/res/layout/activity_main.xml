@@ -10,12 +10,14 @@
     <Spinner
         android:id="@+id/spinner_place"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="10dp" />
+        android:layout_height="128dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        tools:layout_editor_absoluteY="511dp" />
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="493dp">
+        android:layout_height="300dp">
 
         <ImageButton
             android:id="@+id/btn_go"
@@ -30,6 +32,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@mipmap/ic_launcher_round" />
+
     </android.support.constraint.ConstraintLayout>
 
 </LinearLayout>
