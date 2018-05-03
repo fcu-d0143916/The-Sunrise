@@ -5,20 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".LiveImageActivity">
+    tools:context=".MapActivity">
 
-    <VideoView
-        android:id="@+id/video_liveimage"
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/map_view"
         android:layout_width="match_parent"
         android:layout_height="300dp" />
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/layout_place"
+        android:id="@+id/layout_mapdata"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/place_text_1"
+            android:id="@+id/place_text_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
