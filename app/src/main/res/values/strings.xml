@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">The Sunrise</string>
+    <string name="weather">天氣</string>
 </resources>
