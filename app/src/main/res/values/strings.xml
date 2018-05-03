@@ -3,5 +3,8 @@
     <string name="weather">天氣 Weather</string>
     <string name="liveimage">即時影像 LiveImage</string>
     <string name="map">附近地圖 Map</string>
-    <string name="test">測試</string>
+    <string name="weatherdescription">Weather</string>
+    <string name="temperature">temperature</string>
+    <string name="rain">rain</string>
+    <string name="test">test</string>
 </resources>
