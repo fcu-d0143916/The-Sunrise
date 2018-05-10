@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         Spinner spinner = (Spinner)findViewById(R.id.spinner_place);
         ArrayAdapter<CharSequence> lunchList = ArrayAdapter.createFromResource(MainActivity.this,
                 R.array.spinner_place,
-                android.R.layout.simple_spinner_dropdown_item);
+                R.layout.myspinner);
         spinner.setAdapter(lunchList);
     }
 }

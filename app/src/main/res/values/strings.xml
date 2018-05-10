@@ -11,6 +11,7 @@
 
     <string name="spinner_place">選擇地點</string>
     <string-array name="spinner_place">
+        <item>請選擇地點：</item>
         <item>A地點</item>
         <item>B地點</item>
         <item>C地點</item>
