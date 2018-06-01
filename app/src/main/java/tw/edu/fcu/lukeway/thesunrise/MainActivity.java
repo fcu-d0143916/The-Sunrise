@@ -15,7 +15,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     //ListView 要顯示的內容　改到全域變數
-    public String[] str = {"新北市","台北市","台中市","台南市","高雄市"};
+    public String[] str = {"A地點","B地點","C地點","D地點","E地點"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +41,13 @@ public class MainActivity extends AppCompatActivity {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             // Toast 快顯功能 第三個參數 Toast.LENGTH_SHORT 2秒  LENGTH_LONG 5秒
             Toast.makeText(MainActivity.this,"點選第 "+(position +1) +" 個 \n內容："+str[position], Toast.LENGTH_SHORT).show();
+
+            if(position+1 == 1 ) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, ChooseActivity.class);
+                startActivity(intent);
+                MainActivity.this.finish();
+            }
         }
     };
 
