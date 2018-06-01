@@ -40,14 +40,16 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             // Toast 快顯功能 第三個參數 Toast.LENGTH_SHORT 2秒  LENGTH_LONG 5秒
-            Toast.makeText(MainActivity.this,"點選第 "+(position +1) +" 個 \n內容："+str[position], Toast.LENGTH_SHORT).show();
-
-            if(position+1 == 1 ) {
-                Intent intent = new Intent();
-                intent.setClass(MainActivity.this, ChooseActivity.class);
-                startActivity(intent);
-                MainActivity.this.finish();
-            }
+            //Toast.makeText(MainActivity.this,"點選第 "+(position +1) +" 個 \n內容："+str[position], Toast.LENGTH_SHORT).show();
+/////如果選擇第N個選項，各傳不同的值進去////////////////////////////////////////////////////////
+            Intent intent = new Intent();
+            intent.setClass(MainActivity.this, ChooseActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putInt("Choose_num", position +1);
+            intent.putExtras(bundle);
+            startActivity(intent);
+            MainActivity.this.finish();
+/////////////////////////////////////////////////////////////////////////////////////
         }
     };
 
