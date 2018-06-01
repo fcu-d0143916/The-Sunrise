@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             bundle.putInt("Choose_num", position +1);
             intent.putExtras(bundle);
             startActivity(intent);
-            MainActivity.this.finish();
+            //MainActivity.this.finish();
 /////////////////////////////////////////////////////////////////////////////////////
         }
     };
