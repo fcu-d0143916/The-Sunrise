@@ -14,6 +14,9 @@ public class ChooseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose);
+
+        Bundle bundle = this.getIntent().getExtras();
+        final int choose_num = bundle.getInt("Choose_num");
         ///////////////////////////////////////////////////////////////天氣、影像、地圖三個按鈕
         Button btn_weather = (Button) findViewById(R.id.btm_weather);
         Button btm_liveimage = (Button) findViewById(R.id.btm_liveimage);
@@ -24,9 +27,9 @@ public class ChooseActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(ChooseActivity.this, WeatherActivity.class);
-                //Bundle bundle = new Bundle();
-                //bundle.putInt("Choose_num", position +1);
-                //intent.putExtras(bundle);
+                Bundle bundle = new Bundle();
+                bundle.putInt("Choose_num", choose_num);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
@@ -58,8 +61,7 @@ public class ChooseActivity extends AppCompatActivity {
         TextView uptime = (TextView)findViewById(R.id.up_time);// 取得 日出資料
         TextView downtime = (TextView)findViewById(R.id.down_time);// 取得 日沒資料
 
-        Bundle bundle = this.getIntent().getExtras();
-        int choose_num = bundle.getInt("Choose_num");
+
 
 
         if(choose_num == 1) {
