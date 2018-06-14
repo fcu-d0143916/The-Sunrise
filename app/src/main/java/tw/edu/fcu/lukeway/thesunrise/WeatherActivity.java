@@ -1,5 +1,6 @@
 package tw.edu.fcu.lukeway.thesunrise;
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -16,6 +17,7 @@ public class WeatherActivity extends AppCompatActivity {
 
     private ImageView img;
 
+    @SuppressLint("StaticFieldLeak")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

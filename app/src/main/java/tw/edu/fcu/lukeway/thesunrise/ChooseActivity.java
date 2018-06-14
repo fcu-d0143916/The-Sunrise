@@ -50,7 +50,8 @@ public class ChooseActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(ChooseActivity.this, MapActivity.class);
+                //intent.setClass(ChooseActivity.this, MapActivity.class);
+                intent.setClass(ChooseActivity.this, WebLoad.class);
                 //Bundle bundle = new Bundle();
                 //bundle.putInt("Choose_num", position +1);
                 //intent.putExtras(bundle);
