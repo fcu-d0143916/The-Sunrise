@@ -32,8 +32,8 @@ public class WebLoad extends AppCompatActivity {
         //webview.loadUrl("https://google.com");
 
         if (choose_num == 1) {
-            //webview.loadUrl("file:///android_asset/test.html");
-            webview.loadUrl("http://117.56.55.25/T14A-36K+560");
+            webview.loadUrl("file:///android_asset/webview_1.html");
+            //webview.loadUrl("http://117.56.55.25/T14A-36K+560");
         }
     }
 }
