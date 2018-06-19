@@ -39,9 +39,9 @@ public class ChooseActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(ChooseActivity.this, LiveImageActivity.class);
-                //Bundle bundle = new Bundle();
-                //bundle.putInt("Choose_num", position +1);
-                //intent.putExtras(bundle);
+                Bundle bundle = new Bundle();
+                bundle.putInt("Choose_num", choose_num);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
@@ -50,11 +50,11 @@ public class ChooseActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                //intent.setClass(ChooseActivity.this, MapActivity.class);
-                intent.setClass(ChooseActivity.this, WebLoad.class);
-                //Bundle bundle = new Bundle();
-                //bundle.putInt("Choose_num", position +1);
-                //intent.putExtras(bundle);
+                intent.setClass(ChooseActivity.this, MapsActivity_new.class);
+                //intent.setClass(ChooseActivity.this, WebLoad.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("Choose_num", choose_num);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
@@ -65,9 +65,9 @@ public class ChooseActivity extends AppCompatActivity {
 
 
 
-        if(choose_num == 1) {
-            uptime.setText("00:00");
-            downtime.setText("11:11");
+        if(choose_num == 1) {//合歡山 小風口停車場
+            uptime.setText("??:??");
+            downtime.setText("??:??");
         }
 
         //測試值是否有傳過來

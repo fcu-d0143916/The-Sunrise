@@ -24,6 +24,7 @@ public class WeatherActivity extends AppCompatActivity {
         setContentView(R.layout.activity_weather);
 
         img = (ImageView) findViewById(R.id.image_weather);
+
         Bundle bundle = this.getIntent().getExtras();
         final int choose_num = bundle.getInt("Choose_num");
 
