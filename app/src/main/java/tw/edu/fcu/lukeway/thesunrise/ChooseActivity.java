@@ -24,7 +24,7 @@ public class ChooseActivity extends AppCompatActivity {
 
         btn_weather.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) {//中央氣象局
                 Intent intent = new Intent();
                 intent.setClass(ChooseActivity.this, WeatherActivity.class);
                 Bundle bundle = new Bundle();
@@ -36,9 +36,9 @@ public class ChooseActivity extends AppCompatActivity {
 
         btm_liveimage.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) {//即時影像
                 Intent intent = new Intent();
-                intent.setClass(ChooseActivity.this, LiveImageActivity.class);
+                intent.setClass(ChooseActivity.this, WebLoad.class);
                 Bundle bundle = new Bundle();
                 bundle.putInt("Choose_num", choose_num);
                 intent.putExtras(bundle);
@@ -48,7 +48,7 @@ public class ChooseActivity extends AppCompatActivity {
 
         btm_map.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) {//地圖
                 Intent intent = new Intent();
                 intent.setClass(ChooseActivity.this, MapsActivity_new.class);
                 //intent.setClass(ChooseActivity.this, WebLoad.class);
