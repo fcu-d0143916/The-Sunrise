@@ -62,10 +62,11 @@ public class ChooseActivity extends AppCompatActivity {
         TextView uptime = (TextView)findViewById(R.id.up_time);// 取得 日出資料
         TextView downtime = (TextView)findViewById(R.id.down_time);// 取得 日沒資料
 
-
-
-
         if(choose_num == 1) {//合歡山 小風口停車場
+            uptime.setText("??:??");
+            downtime.setText("??:??");
+        }
+        if(choose_num == 2) {//合歡山 武嶺亭
             uptime.setText("??:??");
             downtime.setText("??:??");
         }
@@ -73,4 +74,6 @@ public class ChooseActivity extends AppCompatActivity {
         //測試值是否有傳過來
         //Toast.makeText(ChooseActivity.this,"點選第 "+(choose_num) +" 個 \n內容："+choose_num, Toast.LENGTH_SHORT).show();
     }
+
+
 }

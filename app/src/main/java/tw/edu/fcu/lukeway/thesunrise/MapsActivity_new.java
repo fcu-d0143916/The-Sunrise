@@ -34,6 +34,9 @@ public class MapsActivity_new extends FragmentActivity implements OnMapReadyCall
         if(choose_num == 1) {
             place.setText("合歡山 小風口停車場");
         }
+        if(choose_num == 2) {
+            place.setText("合歡山 武嶺亭");
+        }
     }
 
 
@@ -55,6 +58,11 @@ public class MapsActivity_new extends FragmentActivity implements OnMapReadyCall
 
         if(choose_num == 1) {//合歡山 小風口停車場
             LatLng sydney = new LatLng(24.162484, 121.287288);
+            mMap.addMarker(new MarkerOptions().position(sydney).title("合歡山 小風口"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        }
+        if(choose_num == 2) {//合歡山 武嶺亭
+            LatLng sydney = new LatLng(24.137175, 121.275894);
             mMap.addMarker(new MarkerOptions().position(sydney).title("合歡山 小風口"));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         }

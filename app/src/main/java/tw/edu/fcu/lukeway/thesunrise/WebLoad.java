@@ -23,6 +23,9 @@ public class WebLoad extends AppCompatActivity {
         if(choose_num == 1) {
             place.setText("合歡山 小風口停車場");
         }
+        if(choose_num == 2) {
+            place.setText("合歡山 武嶺亭");
+        }
 
         WebView webview = (WebView) findViewById(R.id.webview);
         WebSettings webSettings = webview.getSettings();
@@ -31,9 +34,12 @@ public class WebLoad extends AppCompatActivity {
         webview.setWebViewClient(new WebViewClient());
         //webview.loadUrl("https://google.com");
 
-        if (choose_num == 1) {
+        if (choose_num == 1) {//合歡山 小風口停車場
             webview.loadUrl("file:///android_asset/webview_1.html");
             //webview.loadUrl("http://117.56.55.25/T14A-36K+560");
+        }
+        if (choose_num == 2) {//合歡山 武嶺亭
+            webview.loadUrl("file:///android_asset/webview_2.html");
         }
     }
 }
