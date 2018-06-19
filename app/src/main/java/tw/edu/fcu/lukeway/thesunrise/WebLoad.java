@@ -26,6 +26,15 @@ public class WebLoad extends AppCompatActivity {
         if(choose_num == 2) {
             place.setText("合歡山 武嶺亭");
         }
+        if(choose_num == 3) {
+            place.setText("合歡山 昆陽休息站");
+        }
+        if(choose_num == 4) {
+            place.setText("合歡山 合歡山莊(松雪樓)");
+        }
+        if(choose_num == 5) {//陽明山 擎天崗草原
+            place.setText("陽明山 擎天崗草原");
+        }
 
         WebView webview = (WebView) findViewById(R.id.webview);
         WebSettings webSettings = webview.getSettings();
@@ -40,6 +49,15 @@ public class WebLoad extends AppCompatActivity {
         }
         if (choose_num == 2) {//合歡山 武嶺亭
             webview.loadUrl("file:///android_asset/webview_2.html");
+        }
+        if (choose_num == 3) {//合歡山 昆陽休息站
+            webview.loadUrl("file:///android_asset/webview_3.html");
+        }
+        if (choose_num == 4) {//合歡山 合歡山莊(松雪樓)
+            webview.loadUrl("file:///android_asset/webview_4.html");
+        }
+        if (choose_num == 5) {//陽明山 擎天崗草原
+            webview.loadUrl("file:///android_asset/webview_5.html");
         }
     }
 }

@@ -20,7 +20,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     //ListView 要顯示的內容　改到全域變數
-    public String[] str = {"合歡山 小風口停車場","合歡山 武嶺亭","C地點","D地點","E地點"};
+    public String[] str = {"合歡山 小風口停車場","合歡山 武嶺亭","合歡山 昆陽休息站","合歡山 合歡山莊(松雪樓)","陽明山 擎天崗草原", "..."};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

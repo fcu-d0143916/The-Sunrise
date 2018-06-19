@@ -37,6 +37,15 @@ public class MapsActivity_new extends FragmentActivity implements OnMapReadyCall
         if(choose_num == 2) {
             place.setText("合歡山 武嶺亭");
         }
+        if(choose_num == 3) {
+            place.setText("合歡山 昆陽休息站");
+        }
+        if(choose_num == 4) {
+            place.setText("合歡山 合歡山莊(松雪樓)");
+        }
+        if(choose_num == 5) {//陽明山 擎天崗草原
+            place.setText("陽明山 擎天崗草原");
+        }
     }
 
 
@@ -63,7 +72,22 @@ public class MapsActivity_new extends FragmentActivity implements OnMapReadyCall
         }
         if(choose_num == 2) {//合歡山 武嶺亭
             LatLng sydney = new LatLng(24.137175, 121.275894);
-            mMap.addMarker(new MarkerOptions().position(sydney).title("合歡山 小風口"));
+            mMap.addMarker(new MarkerOptions().position(sydney).title("合歡山 武嶺亭"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        }
+        if(choose_num == 3) {//合歡山 昆陽休息站
+            LatLng sydney = new LatLng(24.123044, 121.272515);
+            mMap.addMarker(new MarkerOptions().position(sydney).title("合歡山 昆陽休息站"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        }
+        if(choose_num == 4) {//合歡山 合歡山莊
+            LatLng sydney = new LatLng(24.142161, 121.284291);
+            mMap.addMarker(new MarkerOptions().position(sydney).title("合歡山 合歡山莊(松雪樓)"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        }
+        if(choose_num == 5) {//陽明山 擎天崗草原
+            LatLng sydney = new LatLng(25.167239, 121.574215);
+            mMap.addMarker(new MarkerOptions().position(sydney).title("陽明山 擎天崗草原"));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         }
 

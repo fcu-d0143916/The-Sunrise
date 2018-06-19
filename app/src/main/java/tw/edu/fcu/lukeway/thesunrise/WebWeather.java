@@ -34,6 +34,17 @@ public class WebWeather extends AppCompatActivity {
             Toast.makeText(WebWeather.this,"此資料無中央氣象局網站頁面。", Toast.LENGTH_LONG).show();
             finish();
         }
+        if (choose_num == 3) {//合歡山 昆陽休息站
+            //webview.loadUrl("file:///android_asset/webview_2.html");
+            Toast.makeText(WebWeather.this,"此資料無中央氣象局網站頁面。", Toast.LENGTH_LONG).show();
+            finish();
+        }
+        if(choose_num == 4) {//合歡山 合歡山莊(松雪樓)
+            webview.loadUrl("https://www.cwb.gov.tw/V7/forecast/entertainment/other/D028.htm");
+        }
+        if(choose_num == 5) {//陽明山 擎天崗草原
+            webview.loadUrl("https://www.cwb.gov.tw/V7/forecast/entertainment/other/F023.htm");
+        }
     }
 
 }
