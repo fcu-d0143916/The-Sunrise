@@ -45,7 +45,8 @@
 
         <activity
             android:name=".MapsActivity_new"
-            android:label="@string/title_activity_maps_new"></activity>
+            android:label="@string/title_activity_maps_new" />
+        <activity android:name=".WebWeather"></activity>
     </application>
 
 </manifest>
