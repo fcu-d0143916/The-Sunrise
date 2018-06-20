@@ -36,7 +36,7 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
 
     //ListView 要顯示的內容　改到全域變數
-    public String[] str = {"合歡山 小風口停車場","合歡山 武嶺亭","合歡山 昆陽休息站","合歡山 合歡山莊(松雪樓)","陽明山 擎天崗草原", "..."};
+    public String[] str = {"合歡山 小風口停車場","合歡山 武嶺亭","合歡山 昆陽休息站","合歡山 合歡山莊(松雪樓)","陽明山 擎天崗草原", "陽明山 陽明書屋", "..."};
     public static ArrayList<SunData> sunData = new ArrayList<SunData>();
     public static ArrayList<WeatherData> weatherData = new ArrayList<WeatherData>();
     public String nowDay;
@@ -104,6 +104,8 @@ public class MainActivity extends AppCompatActivity {
                                 url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/D028.htm";
                                 break;
                             case 5:
+                                url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/F023.htm";
+                            case 6:
                                 url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/F023.htm";
                         }
 
@@ -216,6 +218,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             case 5:
+            case 6:
                 for (int i = 0; i < sunData.size(); i++) {
                     if (sunData.get(i).getSpec().equals("新北市") && sunData.get(i).getDate().equals(nowDay)) {
                         return i;

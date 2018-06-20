@@ -43,8 +43,11 @@ public class MapsActivity_new extends FragmentActivity implements OnMapReadyCall
         if(choose_num == 4) {
             place.setText("合歡山 合歡山莊(松雪樓)");
         }
-        if(choose_num == 5) {//陽明山 擎天崗草原
+        if(choose_num == 5) {
             place.setText("陽明山 擎天崗草原");
+        }
+        if(choose_num == 6) {
+            place.setText("陽明山 陽明書屋");
         }
     }
 
@@ -88,6 +91,11 @@ public class MapsActivity_new extends FragmentActivity implements OnMapReadyCall
         if(choose_num == 5) {//陽明山 擎天崗草原
             LatLng sydney = new LatLng(25.167239, 121.574215);
             mMap.addMarker(new MarkerOptions().position(sydney).title("陽明山 擎天崗草原"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        }
+        if(choose_num == 6) {//陽明山 陽明書屋
+            LatLng sydney = new LatLng(25.161623, 121.538937);
+            mMap.addMarker(new MarkerOptions().position(sydney).title("陽明山 陽明書屋"));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         }
 

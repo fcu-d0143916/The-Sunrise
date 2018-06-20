@@ -41,16 +41,6 @@ public class ChooseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose);
 
-        ///////////////////////////////////////////////////////////////////////////////
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy年MM月dd日HH:mm:ss");
-
-        Date curDate = new Date(System.currentTimeMillis()) ; // 獲取當前時間
-
-        String str = formatter.format(curDate);
-
-        Toast.makeText(ChooseActivity.this,"目前日期：" + str, Toast.LENGTH_LONG).show();
-        ////////////////////////////////////////////////////////////////////////////////
-
         Bundle bundle = this.getIntent().getExtras();
         final int choose_num = bundle.getInt("Choose_num");
         String upTime = bundle.getString("UpTime");
