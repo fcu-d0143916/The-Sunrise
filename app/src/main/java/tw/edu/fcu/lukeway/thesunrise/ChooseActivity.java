@@ -16,6 +16,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class ChooseActivity extends AppCompatActivity {
@@ -24,8 +26,6 @@ public class ChooseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose);
-
-        //getSunFromFirebase();//firebase
 
         ///////////////////////////////////////////////////////////////////////////////
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy年MM月dd日HH:mm:ss");
@@ -39,6 +39,8 @@ public class ChooseActivity extends AppCompatActivity {
 
         Bundle bundle = this.getIntent().getExtras();
         final int choose_num = bundle.getInt("Choose_num");
+        String upTime = bundle.getString("UpTime");
+        String downTime = bundle.getString("DownTime");
         ///////////////////////////////////////////////////////////////天氣、影像、地圖三個按鈕
         Button btn_weather = (Button) findViewById(R.id.btm_weather);
         Button btm_liveimage = (Button) findViewById(R.id.btm_liveimage);
@@ -84,61 +86,34 @@ public class ChooseActivity extends AppCompatActivity {
         TextView uptime = (TextView)findViewById(R.id.up_time);// 取得 日出資料
         TextView downtime = (TextView)findViewById(R.id.down_time);// 取得 日沒資料
 
+        uptime.setText(upTime);
+        downtime.setText(downTime);
+        /*
         if(choose_num == 1) {//合歡山 小風口停車場
+            uptime.setText(upTime);
+            downtime.setText(downTime);
+        }
+        else if(choose_num == 2) {//合歡山 武嶺亭
             uptime.setText("??:??");
             downtime.setText("??:??");
         }
-        if(choose_num == 2) {//合歡山 武嶺亭
+        else if(choose_num == 3) {//合歡山 昆陽休息站
             uptime.setText("??:??");
             downtime.setText("??:??");
         }
-        if(choose_num == 3) {//合歡山 昆陽休息站
+        else if(choose_num == 4) {//合歡山 合歡山莊(松雪樓)
             uptime.setText("??:??");
             downtime.setText("??:??");
         }
-        if(choose_num == 4) {//合歡山 合歡山莊(松雪樓)
+        else if(choose_num == 5) {//陽明山 擎天崗草原
             uptime.setText("??:??");
             downtime.setText("??:??");
-        }
-        if(choose_num == 5) {//陽明山 擎天崗草原
-            uptime.setText("??:??");
-            downtime.setText("??:??");
-        }
+        }*/
 
         //測試值是否有傳過來
         //Toast.makeText(ChooseActivity.this,"點選第 "+(choose_num) +" 個 \n內容："+choose_num, Toast.LENGTH_SHORT).show();
     }
 
-
-    /*private void getSunFromFirebase() {//firebase
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("");
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    //DataSnapshot dsNo = ds.child("No");
-                    DataSnapshot dsSpec = ds.child("Spec");
-                    DataSnapshot dsDate = ds.child("date");
-                    DataSnapshot dsUp = ds.child("日出時刻");
-                    DataSnapshot dsDown = ds.child("日沒時刻");
-
-                    //String No = (String) dsNo.getValue();
-                    String Spec = (String) dsSpec.getValue();
-                    String Date = (String)dsDate.getValue();
-                    String Up = (String)dsUp.getValue();
-                    String Down = (String)dsDown.getValue();
-
-                    Log.v("測試",    Spec + ";" + Date + ";" + Up + ";" + Down);
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.v("測試", databaseError.getMessage());
-            }
-        });
-    }*/
 
 
 }
