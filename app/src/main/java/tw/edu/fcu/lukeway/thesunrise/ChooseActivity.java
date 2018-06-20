@@ -35,7 +35,6 @@ public class ChooseActivity extends AppCompatActivity {
     public String rainProbabilityMorning;
     public String rainProbabilityNight;
 
-    public String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,56 +55,22 @@ public class ChooseActivity extends AppCompatActivity {
         final int choose_num = bundle.getInt("Choose_num");
         String upTime = bundle.getString("UpTime");
         String downTime = bundle.getString("DownTime");
+        weatherIconMorning = bundle.getString("weatherIconMorning");
+        weatherIconNight = bundle.getString("weatherIconNight");
+        temperatureMorningHigh = bundle.getString("temperatureMorningHigh");
+        temperatureMorningDown = bundle.getString("temperatureMorningDown");
+        temperatureNightHigh = bundle.getString("temperatureNightHigh");
+        temperatureNightDown = bundle.getString("temperatureNightDown");
+        rainProbabilityMorning = bundle.getString("rainProbabilityMorning");
+        rainProbabilityNight = bundle.getString("rainProbabilityNight");
         ///////////////////////////////////////////////////////////////天氣、影像、地圖三個按鈕
         Button btn_weather = (Button) findViewById(R.id.btm_weather);
         Button btm_liveimage = (Button) findViewById(R.id.btm_liveimage);
         Button btm_map = (Button) findViewById(R.id.btm_map);
 
-        switch (choose_num){
-            case 1:
-                url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/F002.htm";
-                break;
-            case 2:
-                url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/F002.htm";
-                break;
-            case 3:
-                url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/F002.htm";
-                break;
-            case 4:
-                url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/D028.htm";
-                break;
-            case 5:
-                url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/F023.htm";
-        }
 
-        new Thread(new Runnable(){
-            @Override
-            public void run() {
-                try {
-                    Document doc = Jsoup.connect(url).get();
-                    Elements elements = doc.select("div.Forecast-box");
-                    //早上天氣圖片
-                    weatherIconMorning = "https://www.cwb.gov.tw/" + elements.select("table").select("tbody").select("tr").get(2).select("td").get(1).select("img").attr("src");
-                    //晚上天氣圖片
-                    weatherIconNight = "https://www.cwb.gov.tw/" + elements.select("table").select("tbody").select("tr").get(2).select("td").get(2).select("img").attr("src");
-                    //早上最高溫
-                    temperatureMorningHigh = elements.select("table").select("tbody").select("tr").get(3).select("td").get(1).text();
-                    //早上最低溫
-                    temperatureMorningDown = elements.select("table").select("tbody").select("tr").get(4).select("td").get(1).text();
-                    //晚上最高溫
-                    temperatureNightHigh = elements.select("table").select("tbody").select("tr").get(3).select("td").get(2).text();
-                    //晚上最低溫
-                    temperatureNightDown = elements.select("table").select("tbody").select("tr").get(4).select("td").get(2).text();
-                    //早上降雨機率
-                    rainProbabilityMorning = elements.select("table").select("tbody").select("tr").get(10).select("td").get(1).text();
-                    //晚上降雨機率
-                    rainProbabilityNight = elements.select("table").select("tbody").select("tr").get(10).select("td").get(2).text();
-                    Log.v("mytag",weatherIconMorning+";"+weatherIconNight+";"+temperatureMorningHigh+";"+temperatureMorningDown+";"+temperatureNightHigh+";"+temperatureNightDown+";"+rainProbabilityMorning+";"+rainProbabilityNight);
-                }catch(Exception e) {
-                    Log.v("mytagError", e.toString());
-                }
-            }
-        }).start();
+
+
 
         btn_weather.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,7 +78,6 @@ public class ChooseActivity extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setClass(ChooseActivity.this, WeatherActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putInt("Choose_num", choose_num);
                 bundle.putString("weatherIconMorning",weatherIconMorning);
                 bundle.putString("weatherIconNight",weatherIconNight);
                 bundle.putString("temperatureMorningHigh",temperatureMorningHigh);

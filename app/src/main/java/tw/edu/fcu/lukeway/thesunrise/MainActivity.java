@@ -26,6 +26,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -34,8 +38,20 @@ public class MainActivity extends AppCompatActivity {
     //ListView 要顯示的內容　改到全域變數
     public String[] str = {"合歡山 小風口停車場","合歡山 武嶺亭","合歡山 昆陽休息站","合歡山 合歡山莊(松雪樓)","陽明山 擎天崗草原", "..."};
     public static ArrayList<SunData> sunData = new ArrayList<SunData>();
+    public static ArrayList<WeatherData> weatherData = new ArrayList<WeatherData>();
     public String nowDay;
     private Dialog dialog;
+
+    public String weatherIconMorning;
+    public String weatherIconNight;
+    public String temperatureMorningHigh;
+    public String temperatureMorningDown;
+    public String temperatureNightHigh;
+    public String temperatureNightDown;
+    public String rainProbabilityMorning;
+    public String rainProbabilityNight;
+
+    public String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +85,57 @@ public class MainActivity extends AppCompatActivity {
         listview.setAdapter(adapter);
         listview.setOnItemClickListener(onClickListView);       //指定事件 Method
 
+        new Thread(new Runnable(){
+            @Override
+            public void run() {
+                try {
+                    for(int i=1;i<=str.length;i++) {
+                        switch (i){
+                            case 1:
+                                url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/F002.htm";
+                                break;
+                            case 2:
+                                url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/F002.htm";
+                                break;
+                            case 3:
+                                url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/F002.htm";
+                                break;
+                            case 4:
+                                url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/D028.htm";
+                                break;
+                            case 5:
+                                url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/F023.htm";
+                        }
+
+                        Document doc = Jsoup.connect(url).get();
+                        Elements elements = doc.select("div.Forecast-box");
+                        //早上天氣圖片
+                        weatherIconMorning = "https://www.cwb.gov.tw/" + elements.select("table").select("tbody").select("tr").get(2).select("td").get(1).select("img").attr("src");
+                        //晚上天氣圖片
+                        weatherIconNight = "https://www.cwb.gov.tw/" + elements.select("table").select("tbody").select("tr").get(2).select("td").get(2).select("img").attr("src");
+                        //早上最高溫
+                        temperatureMorningHigh = elements.select("table").select("tbody").select("tr").get(3).select("td").get(1).text();
+                        //早上最低溫
+                        temperatureMorningDown = elements.select("table").select("tbody").select("tr").get(4).select("td").get(1).text();
+                        //晚上最高溫
+                        temperatureNightHigh = elements.select("table").select("tbody").select("tr").get(3).select("td").get(2).text();
+                        //晚上最低溫
+                        temperatureNightDown = elements.select("table").select("tbody").select("tr").get(4).select("td").get(2).text();
+                        //早上降雨機率
+                        rainProbabilityMorning = elements.select("table").select("tbody").select("tr").get(10).select("td").get(1).text();
+                        //晚上降雨機率
+                        rainProbabilityNight = elements.select("table").select("tbody").select("tr").get(10).select("td").get(2).text();
+                        Log.v("mytag", weatherIconMorning + ";" + weatherIconNight + ";" + temperatureMorningHigh + ";" + temperatureMorningDown + ";" + temperatureNightHigh + ";" + temperatureNightDown + ";" + rainProbabilityMorning + ";" + rainProbabilityNight);
+                        WeatherData weather = new WeatherData(weatherIconMorning, weatherIconNight, temperatureMorningHigh, temperatureMorningDown, temperatureNightHigh, temperatureNightDown, rainProbabilityMorning, rainProbabilityNight);
+                        weatherData.add(weather);
+                    }
+                    dialog.dismiss();
+                }catch(Exception e) {
+                    Log.v("mytagError", e.toString());
+                }
+            }
+        }).start();
+
         dialog = ProgressDialog.show(MainActivity.this,
                 "讀取中", "讀取中...",true);
 
@@ -96,7 +163,6 @@ public class MainActivity extends AppCompatActivity {
                     i++;
                 }
                 //Log.v("count", Integer.toString(sunData.size()));
-                dialog.dismiss();
             }
 
             @Override
@@ -122,6 +188,14 @@ public class MainActivity extends AppCompatActivity {
             int index =getDateForTimeIndex(position+1, sunData, nowDay);
             bundle.putString("UpTime", sunData.get(index).getUptime());
             bundle.putString("DownTime", sunData.get(index).getDowntime());
+            bundle.putString("weatherIconMorning",weatherData.get(position).getWeatherIconMorning());
+            bundle.putString("weatherIconNight",weatherData.get(position).getWeatherIconNight());
+            bundle.putString("temperatureMorningHigh",weatherData.get(position).getTemperatureMorningHigh());
+            bundle.putString("temperatureMorningDown",weatherData.get(position).getTemperatureMorningDown());
+            bundle.putString("temperatureNightHigh",weatherData.get(position).getTemperatureNightHigh());
+            bundle.putString("temperatureNightDown",weatherData.get(position).getTemperatureNightDown());
+            bundle.putString("rainProbabilityMorning",weatherData.get(position).getRainProbabilityMorning());
+            bundle.putString("rainProbabilityNight",weatherData.get(position).getRainProbabilityNight());
             intent.putExtras(bundle);
             startActivity(intent);
             //MainActivity.this.finish();

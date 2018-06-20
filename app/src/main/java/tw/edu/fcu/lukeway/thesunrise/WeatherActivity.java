@@ -62,7 +62,6 @@ public class WeatherActivity extends AppCompatActivity {
         night_rain = (TextView) findViewById(R.id.rainProbabilityNight);
 
         Bundle bundle = this.getIntent().getExtras();
-        final int choose_num = bundle.getInt("Choose_num");
         weatherIconMorning = bundle.getString("weatherIconMorning");
         weatherIconNight = bundle.getString("weatherIconNight");
         temperatureMorningHigh = bundle.getString("temperatureMorningHigh");
