@@ -3,10 +3,17 @@ package tw.edu.fcu.lukeway.thesunrise;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class ChooseActivity extends AppCompatActivity {
 
@@ -14,6 +21,8 @@ public class ChooseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose);
+
+        getSunFromFirebase();//firebase
 
         Bundle bundle = this.getIntent().getExtras();
         final int choose_num = bundle.getInt("Choose_num");
@@ -85,6 +94,37 @@ public class ChooseActivity extends AppCompatActivity {
 
         //測試值是否有傳過來
         //Toast.makeText(ChooseActivity.this,"點選第 "+(choose_num) +" 個 \n內容："+choose_num, Toast.LENGTH_SHORT).show();
+    }
+
+
+    private void getSunFromFirebase() {//firebase
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("");
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    //DataSnapshot dsNo = ds.child("No");
+                    DataSnapshot dsSpec = ds.child("Spec");
+                    DataSnapshot dsDate = ds.child("date");
+                    DataSnapshot dsUp = ds.child("日出時刻");
+                    DataSnapshot dsDown = ds.child("日沒時刻");
+
+                    //String No = (String) dsNo.getValue();
+                    String Spec = (String) dsSpec.getValue();
+                    String Date = (String)dsDate.getValue();
+                    String Up = (String)dsUp.getValue();
+                    String Down = (String)dsDown.getValue();
+
+                    Log.v("測試",    Spec + ";" + Date + ";" + Up + ";" + Down);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.v("測試", databaseError.getMessage());
+            }
+        });
     }
 
 
