@@ -49,6 +49,36 @@ public class MapsActivity_new extends FragmentActivity implements OnMapReadyCall
         if(choose_num == 6) {
             place.setText("陽明山 陽明書屋");
         }
+        if(choose_num == 7) {
+            place.setText("陽明山 大屯自然公園");
+        }
+        if(choose_num == 8) {
+            place.setText("陽明山 遠眺七星山");
+        }
+        if(choose_num == 9) {
+            place.setText("雪霸 武陵遊客中心");
+        }
+        if(choose_num == 10) {
+            place.setText("雪霸 汶水遊客中心");
+        }
+        if(choose_num == 11) {
+            place.setText("雪霸 雪見遊客中心");
+        }
+        if(choose_num == 12) {
+            place.setText("雪霸 觀霧遊客中心");
+        }
+        if(choose_num == 13) {
+            place.setText("龍潭湖風景區");
+        }
+        if(choose_num == 14) {
+            place.setText("遠眺龜山島");
+        }
+        if(choose_num == 15) {
+            place.setText("羅東夜市入口");
+        }
+        if(choose_num == 16) {
+            place.setText("羅東中山公園");
+        }
     }
 
 
@@ -96,6 +126,56 @@ public class MapsActivity_new extends FragmentActivity implements OnMapReadyCall
         if(choose_num == 6) {//陽明山 陽明書屋
             LatLng sydney = new LatLng(25.161623, 121.538937);
             mMap.addMarker(new MarkerOptions().position(sydney).title("陽明山 陽明書屋"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        }
+        if(choose_num == 7) {//陽明山 大屯自然公園
+            LatLng sydney = new LatLng(25.186847, 121.523013);
+            mMap.addMarker(new MarkerOptions().position(sydney).title("陽明山 大屯自然公園"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        }
+        if(choose_num == 8) {//陽明山 遠眺七星山
+            LatLng sydney = new LatLng(25.170837, 121.553333);
+            mMap.addMarker(new MarkerOptions().position(sydney).title("陽明山 遠眺七星山"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        }
+        if(choose_num == 9) {//雪霸 武陵遊客中心
+            LatLng sydney = new LatLng(25.170837, 121.553333);
+            mMap.addMarker(new MarkerOptions().position(sydney).title("雪霸 武陵遊客中心"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        }
+        if(choose_num == 10) {//雪霸 汶水遊客中心
+            LatLng sydney = new LatLng(24.451872, 120.876670);
+            mMap.addMarker(new MarkerOptions().position(sydney).title("雪霸 汶水遊客中心"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        }
+        if(choose_num == 11) {//雪霸 雪見遊客中心
+            LatLng sydney = new LatLng(24.424732, 121.013441);
+            mMap.addMarker(new MarkerOptions().position(sydney).title("雪霸 雪見遊客中心"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        }
+        if(choose_num == 12) {//雪霸 觀霧遊客中心
+            LatLng sydney = new LatLng(24.424732, 121.013441);
+            mMap.addMarker(new MarkerOptions().position(sydney).title("雪霸 觀霧遊客中心"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        }
+        if(choose_num == 13) {//龍潭湖風景區
+            LatLng sydney = new LatLng(24.794766, 121.740206);
+            mMap.addMarker(new MarkerOptions().position(sydney).title("龍潭湖風景區"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        }
+        if(choose_num == 14) {//遠眺龜山島
+            LatLng sydney = new LatLng(24.843290, 121.950137);
+            mMap.addMarker(new MarkerOptions().position(sydney).title("遠眺龜山島"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        }
+        if(choose_num == 15) {//羅東夜市入口
+            LatLng sydney = new LatLng(24.676489, 121.768647);
+            mMap.addMarker(new MarkerOptions().position(sydney).title("羅東夜市入口"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        }
+        if(choose_num == 16) {//羅東中山公園
+            LatLng sydney = new LatLng(24.676672, 121.769018);
+            mMap.addMarker(new MarkerOptions().position(sydney).title("羅東中山公園"));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         }
 

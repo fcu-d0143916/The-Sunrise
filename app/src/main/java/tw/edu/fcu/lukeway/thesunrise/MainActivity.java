@@ -36,7 +36,22 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
 
     //ListView 要顯示的內容　改到全域變數
-    public String[] str = {"合歡山 小風口停車場","合歡山 武嶺亭","合歡山 昆陽休息站","合歡山 合歡山莊(松雪樓)","陽明山 擎天崗草原", "陽明山 陽明書屋", "..."};
+    public String[] str = {"合歡山 小風口停車場",
+                           "合歡山 武嶺亭",
+                           "合歡山 昆陽休息站",
+                           "合歡山 合歡山莊(松雪樓)",
+                           "陽明山 擎天崗草原",
+                           "陽明山 陽明書屋",
+                           "陽明山 大屯自然公園",
+                           "陽明山 遠眺七星山",
+                           "雪霸 武陵遊客中心",
+                           "雪霸 汶水遊客中心",
+                           "雪霸 雪見遊客中心",
+                           "雪霸 觀霧遊客中心",
+                           "龍潭湖風景區",
+                           "遠眺龜山島",
+                           "羅東夜市入口",
+                           "羅東中山公園"};
     public static ArrayList<SunData> sunData = new ArrayList<SunData>();
     public static ArrayList<WeatherData> weatherData = new ArrayList<WeatherData>();
     public String nowDay;
@@ -107,6 +122,26 @@ public class MainActivity extends AppCompatActivity {
                                 url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/F023.htm";
                             case 6:
                                 url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/F023.htm";
+                            case 7:
+                                url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/F023.htm";
+                            case 8:
+                                url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/F023.htm";
+                            case 9:
+                                url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/E035.htm";
+                            case 10:
+                                url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/E019.htm";
+                            case 11:
+                                url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/E021.htm";
+                            case 12:
+                                url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/E022.htm";
+                            case 13:
+                                url = "https://www.cwb.gov.tw//V7/forecast/town368/7Day/1000205.htm";
+                            case 14:
+                                url = "https://www.cwb.gov.tw//V7/forecast/town368/7Day/1000204.htm";
+                            case 15:
+                                url = "https://www.cwb.gov.tw//V7/forecast/town368/7Day/1000202.htm";
+                            case 16:
+                                url = "https://www.cwb.gov.tw//V7/forecast/town368/7Day/1000202.htm";
                         }
 
                         Document doc = Jsoup.connect(url).get();
@@ -219,8 +254,36 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 5:
             case 6:
+            case 7:
+            case 8:
                 for (int i = 0; i < sunData.size(); i++) {
                     if (sunData.get(i).getSpec().equals("新北市") && sunData.get(i).getDate().equals(nowDay)) {
+                        return i;
+                    }
+                }
+                break;
+            case 9:
+                for (int i = 0; i < sunData.size(); i++) {
+                    if (sunData.get(i).getSpec().equals("臺中") && sunData.get(i).getDate().equals(nowDay)) {
+                        return i;
+                    }
+                }
+                break;
+            case 10:
+            case 11:
+            case 12:
+                for (int i = 0; i < sunData.size(); i++) {
+                    if (sunData.get(i).getSpec().equals("苗栗") && sunData.get(i).getDate().equals(nowDay)) {
+                        return i;
+                    }
+                }
+                break;
+            case 13:
+            case 14:
+            case 15:
+            case 16:
+                for (int i = 0; i < sunData.size(); i++) {
+                    if (sunData.get(i).getSpec().equals("宜蘭") && sunData.get(i).getDate().equals(nowDay)) {
                         return i;
                     }
                 }
