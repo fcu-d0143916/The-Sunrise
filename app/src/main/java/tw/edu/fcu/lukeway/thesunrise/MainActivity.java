@@ -70,18 +70,7 @@ public class MainActivity extends AppCompatActivity {
         listview.setOnItemClickListener(onClickListView);       //指定事件 Method
 
         dialog = ProgressDialog.show(MainActivity.this,
-                "讀取中", "讀取中請等待...",true);
-        new Thread(new Runnable(){
-            @Override
-            public void run() {
-                try{
-                    //Thread.sleep(8000);
-                }
-                catch(Exception e){
-                    e.printStackTrace();
-                }
-            }
-        }).start();
+                "讀取中", "讀取中...",true);
 
     }
 

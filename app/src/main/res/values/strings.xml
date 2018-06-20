@@ -9,6 +9,11 @@
     <string name="test">test</string>
     <string name="place">地點：</string>
     <string name="button_web">中央氣象局網站</string>
+    <string name="morning">早上</string>
+    <string name="night">晚上</string>
+    <string name="temphigh">最高溫</string>
+    <string name="tempdown">最低溫</string>
+    <string name="rainprobability">降雨機率</string>
 
     <string name="spinner_place">選擇地點</string>
     <string-array name="spinner_place">
