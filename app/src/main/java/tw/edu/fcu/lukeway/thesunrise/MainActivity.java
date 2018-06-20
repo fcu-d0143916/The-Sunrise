@@ -129,7 +129,6 @@ public class MainActivity extends AppCompatActivity {
                         WeatherData weather = new WeatherData(weatherIconMorning, weatherIconNight, temperatureMorningHigh, temperatureMorningDown, temperatureNightHigh, temperatureNightDown, rainProbabilityMorning, rainProbabilityNight);
                         weatherData.add(weather);
                     }
-                    dialog.dismiss();
                 }catch(Exception e) {
                     Log.v("mytagError", e.toString());
                 }
@@ -162,6 +161,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.v("測試",    sunData.get(i).getSpec() + ";" + sunData.get(i).getDate() + ";" + sunData.get(i).getUptime() + ";" + sunData.get(i).getDowntime());
                     i++;
                 }
+                dialog.dismiss();
                 //Log.v("count", Integer.toString(sunData.size()));
             }
 
