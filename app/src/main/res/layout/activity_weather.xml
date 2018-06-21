@@ -10,7 +10,8 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/layout_weather_morning"
         android:layout_width="match_parent"
-        android:layout_height="250dp">
+        android:layout_height="250dp"
+        android:background="@drawable/underline">
 
         <ImageView
             android:id="@+id/image_weather_morning"

@@ -15,7 +15,8 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp">
+            android:layout_height="100dp"
+            android:background="@drawable/underline">
 
             <ImageView
                 android:id="@+id/imageView4"
@@ -48,7 +49,8 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp">
+            android:layout_height="100dp"
+            android:background="@drawable/underline">
 
             <ImageView
                 android:id="@+id/imageView5"
@@ -83,7 +85,8 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/layout_choose"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/underline">
 
         <Button
             android:id="@+id/btm_weather"
