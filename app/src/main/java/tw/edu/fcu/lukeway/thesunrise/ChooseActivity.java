@@ -111,30 +111,6 @@ public class ChooseActivity extends AppCompatActivity {
 
         uptime.setText(upTime);
         downtime.setText(downTime);
-        /*
-        if(choose_num == 1) {//合歡山 小風口停車場
-            uptime.setText(upTime);
-            downtime.setText(downTime);
-        }
-        else if(choose_num == 2) {//合歡山 武嶺亭
-            uptime.setText("??:??");
-            downtime.setText("??:??");
-        }
-        else if(choose_num == 3) {//合歡山 昆陽休息站
-            uptime.setText("??:??");
-            downtime.setText("??:??");
-        }
-        else if(choose_num == 4) {//合歡山 合歡山莊(松雪樓)
-            uptime.setText("??:??");
-            downtime.setText("??:??");
-        }
-        else if(choose_num == 5) {//陽明山 擎天崗草原
-            uptime.setText("??:??");
-            downtime.setText("??:??");
-        }*/
-
-        //測試值是否有傳過來
-        //Toast.makeText(ChooseActivity.this,"點選第 "+(choose_num) +" 個 \n內容："+choose_num, Toast.LENGTH_SHORT).show();
     }
 
 

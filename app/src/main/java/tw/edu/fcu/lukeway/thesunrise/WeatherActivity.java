@@ -71,20 +71,6 @@ public class WeatherActivity extends AppCompatActivity {
         rainProbabilityMorning = bundle.getString("rainProbabilityMorning");
         rainProbabilityNight = bundle.getString("rainProbabilityNight");
 
-        /*
-        Button nextPageBtn = (Button)findViewById(R.id.button_web);
-        nextPageBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(WeatherActivity.this, WebWeather.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("Choose_num", choose_num);
-                intent.putExtras(bundle);
-                startActivity(intent);
-            }
-        });*/
-
         //建立一個AsyncTask執行緒進行圖片讀取動作，並帶入圖片連結網址路徑
         new AsyncTask<String, Void, Bitmap>() {
             @Override

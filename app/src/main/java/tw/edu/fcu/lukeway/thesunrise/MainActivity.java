@@ -107,11 +107,7 @@ public class MainActivity extends AppCompatActivity {
                     for(int i=1;i<=str.length;i++) {
                         switch (i){
                             case 1:
-                                url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/F002.htm";
-                                break;
                             case 2:
-                                url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/F002.htm";
-                                break;
                             case 3:
                                 url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/F002.htm";
                                 break;
@@ -119,27 +115,30 @@ public class MainActivity extends AppCompatActivity {
                                 url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/D028.htm";
                                 break;
                             case 5:
-                                url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/F023.htm";
                             case 6:
-                                url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/F023.htm";
                             case 7:
-                                url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/F023.htm";
                             case 8:
                                 url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/F023.htm";
+                                break;
                             case 9:
                                 url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/E035.htm";
+                                break;
                             case 10:
                                 url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/E019.htm";
+                                break;
                             case 11:
                                 url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/E021.htm";
+                                break;
                             case 12:
                                 url = "https://www.cwb.gov.tw//V7/forecast/entertainment/7Day/E022.htm";
+                                break;
                             case 13:
                                 url = "https://www.cwb.gov.tw//V7/forecast/town368/7Day/1000205.htm";
+                                break;
                             case 14:
                                 url = "https://www.cwb.gov.tw//V7/forecast/town368/7Day/1000204.htm";
+                                break;
                             case 15:
-                                url = "https://www.cwb.gov.tw//V7/forecast/town368/7Day/1000202.htm";
                             case 16:
                                 url = "https://www.cwb.gov.tw//V7/forecast/town368/7Day/1000202.htm";
                         }
@@ -162,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
                         rainProbabilityMorning = elements.select("table").select("tbody").select("tr").get(10).select("td").get(1).text();
                         //晚上降雨機率
                         rainProbabilityNight = elements.select("table").select("tbody").select("tr").get(10).select("td").get(2).text();
-                        Log.v("mytag", weatherIconMorning + ";" + weatherIconNight + ";" + temperatureMorningHigh + ";" + temperatureMorningDown + ";" + temperatureNightHigh + ";" + temperatureNightDown + ";" + rainProbabilityMorning + ";" + rainProbabilityNight);
+                        //Log.v("mytag", weatherIconMorning + ";" + weatherIconNight + ";" + temperatureMorningHigh + ";" + temperatureMorningDown + ";" + temperatureNightHigh + ";" + temperatureNightDown + ";" + rainProbabilityMorning + ";" + rainProbabilityNight);
                         WeatherData weather = new WeatherData(weatherIconMorning, weatherIconNight, temperatureMorningHigh, temperatureMorningDown, temperatureNightHigh, temperatureNightDown, rainProbabilityMorning, rainProbabilityNight);
                         weatherData.add(weather);
                     }
@@ -172,8 +171,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }).start();
 
-        dialog = ProgressDialog.show(MainActivity.this,
-                "讀取中", "讀取中...",true);
+        dialog = ProgressDialog.show(MainActivity.this, "讀取中", "請稍候...",true);
 
     }
 
@@ -185,7 +183,6 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 int i=0;
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    //DataSnapshot dsNo = ds.child("No");
                     DataSnapshot dsSpec = ds.child("Spec");
                     DataSnapshot dsDate = ds.child("date");
                     DataSnapshot dsUp = ds.child("日出時刻");
@@ -194,8 +191,7 @@ public class MainActivity extends AppCompatActivity {
                     SunData data = new SunData((String) dsSpec.getValue(), (String) dsDate.getValue(), (String) dsUp.getValue(), (String) dsDown.getValue());
                     sunData.add(data);
 
-                    //String No = (String) dsNo.getValue();
-                    Log.v("測試",    sunData.get(i).getSpec() + ";" + sunData.get(i).getDate() + ";" + sunData.get(i).getUptime() + ";" + sunData.get(i).getDowntime());
+                    //Log.v("測試",    sunData.get(i).getSpec() + ";" + sunData.get(i).getDate() + ";" + sunData.get(i).getUptime() + ";" + sunData.get(i).getDowntime());
                     i++;
                 }
                 dialog.dismiss();
@@ -235,7 +231,6 @@ public class MainActivity extends AppCompatActivity {
             bundle.putString("rainProbabilityNight",weatherData.get(position).getRainProbabilityNight());
             intent.putExtras(bundle);
             startActivity(intent);
-            //MainActivity.this.finish();
 /////////////////////////////////////////////////////////////////////////////////////
         }
     };
@@ -291,42 +286,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return -1;
     }
-
-    /*ArrayAdapter <String> adapter;
-    String[] name = {"A地點", "B地點", "C地點", "D地點", "E地點"};
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        Spinner spinner = (Spinner)findViewById(R.id.spinner_place);
-        ArrayAdapter<CharSequence> lunchList = ArrayAdapter.createFromResource(MainActivity.this,
-                R.array.spinner_place,
-                R.layout.myspinner);
-        spinner.setAdapter(lunchList);
-        adapter = new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_list_item_1,name);
-
-        spinner.setAdapter(adapter);
-
-        spinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch (position){
-                    case 0:
-
-                        break;
-                    case 1:
-                        break;
-                    case 2:
-                        break;
-                    case 3:
-                        break;
-                    case 4:
-                        break;
-                }
-            }
-        });
-    }*/
 }
 

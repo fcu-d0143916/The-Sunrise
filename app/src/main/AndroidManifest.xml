@@ -28,8 +28,6 @@
         </activity>
         <activity android:name=".ChooseActivity" />
         <activity android:name=".WeatherActivity" />
-        <activity android:name=".LiveImageActivity" />
-        <activity android:name=".MapActivity" />
         <activity android:name=".WebLoad" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -46,7 +44,6 @@
         <activity
             android:name=".MapsActivity_new"
             android:label="@string/title_activity_maps_new" />
-        <activity android:name=".WebWeather"></activity>
     </application>
 
 </manifest>
