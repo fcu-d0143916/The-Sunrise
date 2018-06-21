@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">The Sunrise</string>
-    <string name="weather">天氣 Weather</string>
+    <string name="weather">明日天氣 Weather</string>
     <string name="liveimage">即時影像 LiveImage</string>
     <string name="map">附近地圖 Map</string>
     <string name="weatherdescription">Weather</string>
@@ -8,21 +8,10 @@
     <string name="rain">rain</string>
     <string name="test">test</string>
     <string name="place">地點：</string>
-    <string name="button_web">中央氣象局網站</string>
     <string name="morning">早上</string>
     <string name="night">晚上</string>
     <string name="temphigh">最高溫</string>
     <string name="tempdown">最低溫</string>
     <string name="rainprobability">降雨機率</string>
-
-    <string name="spinner_place">選擇地點</string>
-    <string-array name="spinner_place">
-        <item>請選擇地點：</item>
-        <item>A地點</item>
-        <item>B地點</item>
-        <item>C地點</item>
-        <item>D地點</item>
-        <item>E地點</item>
-    </string-array>
     <string name="title_activity_maps_new">Map</string>
 </resources>

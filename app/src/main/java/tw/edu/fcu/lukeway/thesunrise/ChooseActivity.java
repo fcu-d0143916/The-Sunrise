@@ -53,6 +53,8 @@ public class ChooseActivity extends AppCompatActivity {
         temperatureNightDown = bundle.getString("temperatureNightDown");
         rainProbabilityMorning = bundle.getString("rainProbabilityMorning");
         rainProbabilityNight = bundle.getString("rainProbabilityNight");
+        String placeName = bundle.getString("Name");
+
         ///////////////////////////////////////////////////////////////天氣、影像、地圖三個按鈕
         Button btn_weather = (Button) findViewById(R.id.btm_weather);
         Button btm_liveimage = (Button) findViewById(R.id.btm_liveimage);
@@ -108,9 +110,11 @@ public class ChooseActivity extends AppCompatActivity {
         ///////////////////////////////////////////////////////////////
         TextView uptime = (TextView)findViewById(R.id.up_time);// 取得 日出資料
         TextView downtime = (TextView)findViewById(R.id.down_time);// 取得 日沒資料
+        TextView place = (TextView) findViewById(R.id.placename);
 
         uptime.setText(upTime);
         downtime.setText(downTime);
+        place.setText("地點：" + placeName);
     }
 
 

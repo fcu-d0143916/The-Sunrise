@@ -229,6 +229,7 @@ public class MainActivity extends AppCompatActivity {
             bundle.putString("temperatureNightDown",weatherData.get(position).getTemperatureNightDown());
             bundle.putString("rainProbabilityMorning",weatherData.get(position).getRainProbabilityMorning());
             bundle.putString("rainProbabilityNight",weatherData.get(position).getRainProbabilityNight());
+            bundle.putString("Name",str[position]);
             intent.putExtras(bundle);
             startActivity(intent);
 /////////////////////////////////////////////////////////////////////////////////////
